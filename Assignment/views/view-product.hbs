@@ -1,0 +1,44 @@
+<ul class="nav" style="margin-left: 290px; margin-top: 10px;">
+  <li class="nav-item">
+    <a style="font-size: 20px;" href="/product/list" class="nav-link disabled" >Danh Sách</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 20px; "> | </a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 20px; " href="/product/view" class="nav-link">Sản phẩm</a>
+  </li>
+</ul>
+<div style="text-align: center; color: rgb(241, 90, 8);margin: 20px;">
+<a style="font-family:cursive; font-size: 20px;font-weight:bold">DANH SÁCH SẢN PHẨM</a>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+    {{#each products}}
+
+      <div class="col-md-3">
+        
+        <div class="card mb-4 box-shadow" style="width: 175px; height: 370px;">
+          <img src="/{{this.image}}" style="width: 155px; height: 150px;margin-top:10px" />
+          <div class="card-body" style="font-weight: bold;">
+            <p style="font-size: 17px; text-align: center;font-family:cursive; color: rgb(241, 90, 8)"class="card-title" >
+              {{this.productName}}</p>
+            <p class="card-text">Giá: {{this.price}}</p>
+            <p class="card-text">Hãng: {{this.productType}}</p>
+            <p class="card-text">Số lượng: {{this.quantity}}</p>
+            <p class="card-text">Mô tả: {{this.description}}</p>
+              <a href="/product/edit/{{this._id}}" class="bnt btn-primary btn-sm" style="font-size: 14px;margin-right: 20px;margin-left: 30px;"
+              >sửa</a>
+              <a href="/product/delete/{{this._id}}" class="bnt btn-danger btn-sm " style="font-size: 14px;" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này ?')"
+              >Xóa</a>
+          </div>
+        </div>
+      </div>
+
+    {{/each}}
+
+  </div>
+</div>

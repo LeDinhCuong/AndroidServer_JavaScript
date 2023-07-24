@@ -1,0 +1,92 @@
+<ul class="nav" class="nav" style="margin-left: 290px;margin-top: 10px;margin-bottom: 15px;">
+    <li class="nav-item">
+      <a style="font-size: 20px; color: ; " href="/product/list" class="nav-link ">Danh Sách</a>
+    </li>
+    <li class="nav-item">
+      <a style="font-size: 20px; " > | </a>
+    </li>
+    <li class="nav-item">
+      <a style="font-size: 20px; " href="/product/view" class="nav-link disabled" >Sản phẩm</a>
+    </li>
+  </ul>
+
+<div class="card" style="margin-top: 5px;">
+        <div class="card-header" style="text-align: center; color:rgb(241, 90, 8) ;font-family:cursive; font-size: 20px;font-weight:bold">
+          {{viewTitle}}
+        </div>
+        <form  action="/product/add" method="POST" enctype="multipart/form-data" autocomplete="off" style="font-size: 17px;">
+          <input type="hidden" name="id" value="{{product._id}}">
+          <div class="row" style="margin: 15px; ">
+            <div class="form-group col-sm-6">
+              <label for="">Tên sản phẩm</label>
+              <input type="text" name="productName" value="{{product.productName}}" placeholder="Tên sản phẩm"
+                style="font-size: 13px;" class="form-control">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="">Hãng sản phẩm</label>
+              <select name="productType" value="{{product.productType}}" class="form-control" style="font-size: 13px;">
+                <option>SAM SUNG</option>
+                <option>OPPO</option>
+                <option>IPHONE</option>
+                <option>XIAOMI</option>
+                <option>NOKIA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin: 15px;">
+            <div class="form-group col-sm-6">
+              <label for="">Số lượng</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="number" name="quantity" value="{{product.quantity}}" style="font-size: 13px;"
+                  class="form-control" placeholder="số lượng" aria-label="Recipient's text">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="">Giá</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input type="number" name="price" value="{{product.price}}" style="font-size: 13px;"
+                  class="form-control" placeholder="giá" aria-label="Recipient's text">
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin: 15px;">
+            <div class="form-group col-sm-12">
+              <label for="">Mô tả</label>
+              <textarea name="description"value="{{product.description}}" style="font-size: 15px;" rows="4" class="form-control"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group col-sm-6" style="margin: 15px;">
+              <label for="image">Chọn ảnh</label>
+              <input type="file" class="form-control-file" id="image" name="image" value="{{product.image}}"
+                style="font-size: 13px;" class="form-control"  required>
+            </div>
+
+          <div class="row" style="margin: 15px;">
+            <div class="form-group col-sm-12" style="margin-left: 625px;">
+              <button type="submit" class="btn btn-primary" style="font-size: 16px;">Lưu</button>
+              <button type="reset" class="btn btn-primary" style="font-size: 16px;">Hủy</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="card-footer">
+          <h3 style="font-size: 20px; color: rgb(241, 90, 8);text-align: right; margin-right: 20px">
+            {{viewResult}}
+          </h3>
+        </div>
+      </div>
